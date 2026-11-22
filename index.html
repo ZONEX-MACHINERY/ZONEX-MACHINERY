@@ -241,6 +241,29 @@
       background: var(--bg-card-soft);
     }
 
+    /* Showcase Image */
+    .showcase-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px;
+      margin-bottom: 8px;
+    }
+
+    .showcase-img {
+      width: 100%;
+      max-height: 460px;
+      object-fit: cover;
+      border-radius: 8px;
+      display: block;
+    }
+
+    .showcase-caption {
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
     /* Sections */
     section {
       padding: 28px 0;
@@ -394,6 +417,19 @@
         <button class="btn btn-secondary" id="downloadSpecBtn" type="button">
           Download Spec Sheets
         </button>
+      </div>
+    </section>
+
+    <section aria-label="Featured Crane">
+      <div class="showcase-box">
+        <img
+          src="xcmg-crane-1.jpg"
+          alt="Inspected Used Crane Ready for Export"
+          class="showcase-img"
+        />
+        <p class="showcase-caption">
+          Inspected Heavy Crane Unit &mdash; Pre-shipment mechanical &amp; structural check available upon request.
+        </p>
       </div>
     </section>
 
