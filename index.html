@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZONEX — Heavy Machinery &amp; OEM Parts Export</title>
+  <style>
+    :root {
+      --bg-main: #090d16;
+      --bg-card: #111827;
+      --bg-card-soft: #162033;
+      --border: rgba(255, 255, 255, 0.09);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent: #f59e0b;
+      --accent-hover: #d97706;
+      --accent-ink: #111827;
+      --whatsapp: #16a34a;
+      --whatsapp-hover: #15803d;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: radial-gradient(circle at top right, rgba(245, 158, 11, 0.12), transparent 42%),
+                  var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.55;
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(9, 13, 22, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-bar {
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 9px;
+      background: var(--accent);
+      color: var(--accent-ink);
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .brand-name {
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      line-height: 1.15;
+    }
+
+    .brand-sub {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      color: var(--text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .nav-links {
+      display: none;
+      gap: 24px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--text-main);
+    }
+
+    .menu-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text-main);
+      font-size: 20px;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      padding: 12px 20px 18px;
+      border-top: 1px solid var(--border);
+      background: var(--bg-main);
+      gap: 12px;
+    }
+
+    .mobile-menu.open {
+      display: flex;
+    }
+
+    .mobile-menu a {
+      padding: 6px 0;
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 40px 0 36px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    h1 {
+      font-size: clamp(30px, 6vw, 48px);
+      line-height: 1.12;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    h1 span {
+      color: var(--accent);
+    }
+
+    .hero-desc {
+      color: var(--text-muted);
+      font-size: 16px;
+      max-width: 680px;
+      margin-bottom: 26px;
+    }
+
+    .cta-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 460px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 20px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background 0.15s ease, transform 0.15s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--accent-ink);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+    }
+
+    .btn-secondary {
+      background: var(--bg-card);
+      color: var(--text-main);
+      border-color: var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: var(--bg-card-soft);
+    }
+
+    /* Sections */
+    section {
+      padding: 28px 0;
+    }
+
+    .section-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .card h3 {
+      font-size: 16px;
+      margin-bottom: 8px;
+      color: var(--text-main);
+    }
+
+    .card p {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .kpi-value {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 28px;
+      padding: 28px 0 44px;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    /* Floating WhatsApp */
+    .wa-float {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 40;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: var(--whatsapp);
+      color: #ffffff;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 13px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
+    }
+
+    .wa-float:hover {
+      background: var(--whatsapp-hover);
+    }
+
+    @media (min-width: 768px) {
+      .nav-links {
+        display: flex;
+      }
+      .menu-btn,
+      .mobile-menu {
+        display: none !important;
+      }
+      .hero {
+        padding: 56px 0 44px;
+      }
+      .cta-group {
+        flex-direction: row;
+        max-width: none;
+      }
+      .grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav-bar">
+      <a href="#" class="brand">
+        <div class="brand-mark">Z</div>
+        <div class="brand-text">
+          <span class="brand-name">ZONEX</span>
+          <span class="brand-sub">HEAVY MACHINERY &amp; PARTS EXPORT</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#equipment">Equipment</a>
+        <a href="#parts">OEM Parts</a>
+        <a href="#logistics">Export &amp; Shipping</a>
+      </nav>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle Menu">&#9776;</button>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#equipment">Equipment</a>
+      <a href="#parts">OEM Parts</a>
+      <a href="#logistics">Export &amp; Shipping</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="badge">
+        <span class="badge-dot"></span>
+        <span>DIRECT CHINA EXPORT &bull; FOB / CIF GLOBAL SHIPPING</span>
+      </div>
+
+      <h1>
+        Certified Used Cranes &amp;<br />
+        <span>OEM Spare Parts</span> Export<br />
+        for Global Contractors
+      </h1>
+
+      <p class="hero-desc">
+        Direct export sourcing of inspected 25T&ndash;500T mobile cranes and high-wear replacement
+        components for Zoomlion, XCMG, Sany, Liebherr, and Grove fleets across Latin America,
+        the Middle East, and Africa.
+      </p>
+
+      <div class="cta-group">
+        <a
+          class="btn btn-primary"
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://wa.me/8618368826762?text=Hello%20ZONEX%20EXPORT%2C%20I%20would%20like%20a%20quote%20for%20used%20cranes%20or%20spare%20parts."
+        >
+          Chat on WhatsApp Now
+        </a>
+
+        <button class="btn btn-secondary" id="downloadSpecBtn" type="button">
+          Download Spec Sheets
+        </button>
+      </div>
+    </section>
+
+    <section id="equipment">
+      <h2 class="section-title">Core Export Scope</h2>
+      <div class="grid-3">
+        <div class="card">
+          <div class="kpi-value">25T &ndash; 500T</div>
+          <h3>Used Truck &amp; All-Terrain Cranes</h3>
+          <p>Pre-export mechanical, boom, hydraulic, and structural inspection with video walkarounds and working-hour verification.</p>
+        </div>
+
+        <div class="card" id="parts">
+          <div class="kpi-value">OEM &amp; Aftermarket</div>
+          <h3>Critical Wear &amp; Hydraulic Parts</h3>
+          <p>Filters, slew bearings, wire ropes, seals, sensors, and drivetrain components matched by serial number and part code.</p>
+        </div>
+
+        <div class="card" id="logistics">
+          <div class="kpi-value">FOB / CIF</div>
+          <h3>Global Export &amp; Port Logistics</h3>
+          <p>Flat-rack, breakbulk, and container export shipping with customs clearance and commercial documentation.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p><strong>ZONEX EXPORT</strong> &mdash; Heavy Construction Equipment &amp; Spare Parts Export. Direct trade inquiries via WhatsApp (+86-18368826762).</p>
+    </div>
+  </footer>
+
+  <a
+    class="wa-float"
+    target="_blank"
+    rel="noopener noreferrer"
+    href="https://wa.me/8618368826762?text=Hello%20ZONEX%20EXPORT%2C%20I%20need%20assistance%20with%20cranes%20or%20spare%20parts."
+    aria-label="WhatsApp"
+  >
+    WA
+  </a>
+
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const downloadSpecBtn = document.getElementById("downloadSpecBtn");
+
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("open");
+    });
+
+    mobileMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => mobileMenu.classList.remove("open"));
+    });
+
+    downloadSpecBtn.addEventListener("click", () => {
+      const specContent = [
+        "ZONEX EXPORT - USED CRANES & OEM SPARE PARTS BRIEF",
+        "==================================================",
+        "1. Used Cranes Sourced: 25T - 500T Truck Cranes & All-Terrain Cranes",
+        "2. Supported Brands: Zoomlion, XCMG, Sany, Liebherr, Grove",
+        "3. Trade Terms: EXW, FOB China Ports, CIF Destination Ports",
+        "4. Required Info for Quote: Model/Tonnage, Target Year, Delivery Port, Part Numbers",
+        "5. Contact: WhatsApp +86-18368826762 via ZONEX EXPORT website"
+      ].join("\n");
+
+      const blob = new Blob([specContent], { type: "text/plain;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "ZONEX-Export-Spec-Overview.txt";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    });
+  </script>
+</body>
+</html>
