@@ -63,8 +63,7 @@
 
     <!-- =====================================================================
          CONFIGURATION NOTE:
-         Replace '13055550199' in the script below with your actual WhatsApp 
-         number (country code + number, no '+' or spaces).
+         WhatsApp Number configured: +86-18368826762 (8618368826762 for wa.me)
     ====================================================================== -->
 
     <!-- Sticky Minimalist Navigation Bar -->
@@ -278,7 +277,7 @@
             <article data-category="Truck Crane" class="crane-card bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition flex flex-col justify-between">
                 <div>
                     <div class="relative aspect-[16/10] bg-slate-900 overflow-hidden">
-                        <img src="https://placehold.co/640x400/0f172a/f59e0b?text=80T+TRUCK+CRANE" onerror="this.src='https://placehold.co/640x400/0f172a/ffffff?text=80T+TRUCK+CRANE'" alt="XCMG XCT80L5 80 Ton Truck Crane" class="w-full h-full object-cover">
+                        <img src="xcmg-crane-1.jpg" onerror="if(!this.dataset.triedPng){this.dataset.triedPng='1';this.src='xcmg-crane-1.png';}else if(!this.dataset.triedRaw){this.dataset.triedRaw='1';this.src='xcmg-crane-1';}else{this.onerror=null;this.src='https://placehold.co/640x400/0f172a/ffffff?text=80T+TRUCK+CRANE';}" alt="XCMG XCT80L5 80 Ton Truck Crane" class="w-full h-full object-cover">
                         <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-slate-950/85 text-amber-400 text-xs font-mono font-semibold">Truck Crane</span>
                         <span class="absolute top-3 right-3 px-2.5 py-1 rounded-md bg-emerald-600 text-white text-xs font-semibold">Ready Ro-Ro</span>
                     </div>
@@ -605,8 +604,12 @@
                             <span class="text-slate-300">T/T Wire Transfer • Irrevocable L/C at Sight</span>
                         </div>
                         <div class="flex items-start gap-3">
+                            <span class="text-amber-400 font-mono font-bold">WHATSAPP:</span>
+                            <a href="https://wa.me/8618368826762" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-amber-400 font-mono transition">+86-18368826762</a>
+                        </div>
+                        <div class="flex items-start gap-3">
                             <span class="text-amber-400 font-mono font-bold">EMAIL:</span>
-                            <span class="text-slate-300 font-mono">sales@zonexexport.com</span>
+                            <a href="mailto:lafia168@163.com" class="text-slate-300 hover:text-amber-400 font-mono transition">lafia168@163.com</a>
                         </div>
                     </div>
 
@@ -714,9 +717,9 @@
     <!-- Interactive Logic -->
     <script>
         // =========================================================================
-        // 1. CONFIGURATION: Update your WhatsApp number here (Country code + Digits)
+        // 1. CONFIGURATION: WhatsApp number (+86-18368826762 -> Country code + Digits)
         // =========================================================================
-        const WHATSAPP_PHONE = "13055550199";
+        const WHATSAPP_PHONE = "8618368826762";
 
         // Open WhatsApp with pre-filled B2B inquiry message
         function openWhatsApp(message) {
@@ -725,7 +728,7 @@
                 const url = `https://wa.me/${WHATSAPP_PHONE}?text=${encodedMsg}`;
                 window.open(url, '_blank', 'noopener,noreferrer');
             } catch (err) {
-                showToast("Unable to open WhatsApp automatically. Please contact: +" + WHATSAPP_PHONE);
+                showToast("Unable to open WhatsApp automatically. Please contact: +86-18368826762");
             }
         }
 
